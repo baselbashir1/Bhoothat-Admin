@@ -65,7 +65,7 @@
         <div class="row">
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
                 <a href="requests" class="card style-2 mb-md-0 mb-4">
-                    <img src="{{ Vite::asset('resources/images/samples/1.jpeg') }}" class="card-img-top"
+                    <img src="{{ Vite::asset('resources/images/requests.png') }}" class="card-img-top"
                         alt="..." style="height: 210px">
                     <div class="card-body px-0 pb-0 text-center">
                         <h5 class="card-title mb-3 font-bg">الطلبات</h5>
@@ -74,12 +74,11 @@
             </div>
 
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
-                <a href="./app-blog-post.html" class="card style-2 mb-md-0 mb-4">
-                    <img src="{{ Vite::asset('resources/images/samples/2.jpeg') }}" class="card-img-top"
+                <a href="/users" class="card style-2 mb-md-0 mb-4">
+                    <img src="{{ Vite::asset('resources/images/users.jpeg') }}" class="card-img-top"
                         alt="..." style="height: 210px">
                     <div class="card-body px-0 pb-0 text-center">
                         <h5 class="card-title mb-3 font-bg">المستخدمين</h5>
-                        <button class="btn btn-secondary font-bg-btn">{{ __('trans.read') }}</button>
                     </div>
                 </a>
             </div>

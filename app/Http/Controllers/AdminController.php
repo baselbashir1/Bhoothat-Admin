@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminRequest;
-use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function viewSignUp()
     {
-        return view('pages-rtl.authentication.boxed.signup', ['title' => 'SignUp']);
+        return view('pages-rtl.authentication.boxed.signup', ['title' => __('trans.bhoothat')]);
     }
 
     public function register(AdminRequest $request)
@@ -18,7 +18,7 @@ class AdminController extends Controller
         $formFields = $request->all();
         $formFields['password'] = bcrypt($formFields['password']);
 
-        $admin = Admin::create($formFields);
+        $admin = User::create($formFields);
         auth()->login($admin);
 
         return redirect('/dashboard');
@@ -26,13 +26,13 @@ class AdminController extends Controller
 
     public function viewSignIn()
     {
-        return view('pages-rtl.authentication.boxed.signin', ['title' => 'SignIn']);
+        return view('pages-rtl.authentication.boxed.signin', ['title' => __('trans.bhoothat')]);
     }
 
     public function login(Request $request)
     {
         $formFields = $request->validate([
-            'email' => 'required|email',
+            'username' => 'required',
             'password' => 'required'
         ]);
 
@@ -42,7 +42,8 @@ class AdminController extends Controller
             return redirect('/dashboard');
         }
 
-        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+        // return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+        return back()->withErrors(['username' => 'اسم المستخدم او كلمة المرور خطأ'])->onlyInput('username');
     }
 
     public function logout(Request $request)
@@ -55,8 +56,8 @@ class AdminController extends Controller
         return redirect('/sign-in');
     }
 
-    public function profile()
-    {
-        return view('pages-rtl.user.profile', ['title' => 'Profile']);
-    }
+    // public function profile()
+    // {
+    //     return view('pages-rtl.user.profile', ['title' => 'Profile']);
+    // }
 }

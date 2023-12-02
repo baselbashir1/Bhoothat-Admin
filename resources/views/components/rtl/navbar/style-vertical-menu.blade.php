@@ -47,7 +47,7 @@
         <ul class="navbar-item flex-row ms-lg-auto ms-0 action-area">
             @auth
                 <li class="nav-item theme-toggle-item theme-auth-new">
-                    <a href="#">{{ Auth::user()->name }}</a>
+                    <a href="#">{{ Auth::user()->username }}</a>
                 </li>
                 <li class="nav-item theme-toggle-item theme-auth-new">
                     <form method="POST" action="{{ route('logout') }}">

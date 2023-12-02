@@ -16,7 +16,7 @@
     @auth
         <div></div>
     @else
-        <div class="auth-container d-flex mt-4">
+        <div class="auth-container d-flex m-4">
             <div class="container mx-auto align-self-center">
                 <div class="row">
                     <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
@@ -30,11 +30,11 @@
                                         @csrf
                                         <div class="col-md-12">
                                             <div class="mb-3">
-                                                <label class="form-label">البريد الالكتروني</label>
-                                                <input type="email" class="form-control text-right" name="email"
-                                                    placeholder="قم بادخال البريد الالكتروني">
-                                                @error('email')
-                                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                                <label class="form-label">اسم المستخدم</label>
+                                                <input type="text" class="form-control text-right" name="username"
+                                                    placeholder="قم بادخال اسم المستخدم">
+                                                @error('username')
+                                                    <p class="text-red-500 text-xs m-1" style="color: red">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
@@ -44,11 +44,11 @@
                                                 <input type="password" class="form-control" name="password"
                                                     placeholder="قم بادخال كلمة المرور">
                                                 @error('password')
-                                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                                    <p class="text-red-500 text-xs m-1" style="color: red">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        {{-- <div class="col-12">
                                             <div class="mb-3">
                                                 <div class="form-check form-check-primary form-check-inline">
                                                     <input class="form-check-input me-3" type="checkbox"
@@ -58,7 +58,7 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-12">
                                             <div class="mb-4">
                                                 <button type="submit" class="btn btn-secondary w-100"
@@ -72,7 +72,7 @@
                                         <div class="text-center">
                                             <p class="mb-0">ليس لديك حساب؟
                                                 <a href="/sign-up" class="text-warning">
-                                                    {{ __('trans.sign_up') }}
+                                                    التسجيل
                                                 </a>
                                             </p>
                                         </div>

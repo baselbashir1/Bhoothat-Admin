@@ -16,11 +16,11 @@
     @auth
         <div></div>
     @else
-        <div class="auth-container d-flex mt-4">
+        <div class="auth-container d-flex">
             <div class="container mx-auto align-self-center">
                 <div class="row">
                     <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
-                        <div class="card mt-3 mb-3">
+                        <div class="card mb-4">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
@@ -30,21 +30,11 @@
                                         @csrf
                                         <div class="col-md-12">
                                             <div class="mb-3">
-                                                <label class="form-label">الاسم</label>
-                                                <input type="text" name="name"
+                                                <label class="form-label">اسم المستخدم</label>
+                                                <input type="text" name="username"
                                                     class="form-control add-billing-address-input"
-                                                    placeholder="قم بادخال الاسم">
-                                                @error('name')
-                                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="mb-3">
-                                                <label class="form-label">البريد الالكتروني</label>
-                                                <input type="email" class="form-control text-right" name="email"
-                                                    placeholder="قم بادخال البريد الالكتروني">
-                                                @error('email')
+                                                    placeholder="قم بادخال اسم المستخدم">
+                                                @error('username')
                                                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                                                 @enderror
                                             </div>
@@ -81,7 +71,7 @@
                                     <div class="col-12">
                                         <div class="text-center">
                                             <p class="mb-0">لديك حساب مسبقا؟ <a href="/sign-in" class="text-warning">
-                                                    {{ __('trans.sign_in') }}</a></p>
+                                                    تسجيل الدخول</a></p>
                                         </div>
                                     </div>
                                 </div>

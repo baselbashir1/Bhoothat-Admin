@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\RequestResearchController;
+use App\Http\Controllers\UserController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -33,6 +34,7 @@ Route::group(
                 Route::get('/', function(){return redirect('/dashboard');});
                 Route::get('/dashboard', [HomeController::class, 'dashboard']);
                 Route::get('/requests', [RequestResearchController::class, 'getAllRequests']);
+                Route::get('/users', [UserController::class, 'getAllUsers']);
                 Route::get('/profile', [AdminController::class, 'profile']);
             });
 
