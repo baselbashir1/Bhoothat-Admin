@@ -29,7 +29,9 @@ Route::group(
             Route::get('/clear', [HomeController::class, 'clear']);
 
             Route::middleware(['auth'])->group(function () {
-                Route::get('/dashboard', [HomeController::class, 'index']);
+                Route::get('/', function(){return redirect('/dashboard');});
+                Route::get('/dashboard', [HomeController::class, 'dashboard']);
+                Route::get('/requests', [HomeController::class, 'showRequests']);
                 Route::get('/profile', [AdminController::class, 'profile']);
             });
 

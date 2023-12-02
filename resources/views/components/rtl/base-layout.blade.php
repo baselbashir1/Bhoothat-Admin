@@ -4,7 +4,8 @@
     $isRTL = layoutConfig()['rtl'];
 @endphp
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+{{-- <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> --}}
+<html lang="ar">
 
 <head>
     <meta charset="utf-8">
@@ -100,15 +101,7 @@
     {{-- @vite(['resources/rtl/scss/light/assets/main.scss', 'resources/rtl/scss/dark/assets/main.scss']) --}}
     @vite(['resources/scss/light/assets/main.scss', 'resources/scss/dark/assets/main.scss'])
 
-    {{-- @if (
-        !Request::routeIs('404') &&
-            !Request::routeIs('maintenance') &&
-            !Request::routeIs('signin') &&
-            !Request::routeIs('signup') &&
-            !Request::routeIs('lockscreen') &&
-            !Request::routeIs('password-reset') &&
-            !Request::routeIs('2Step') &&
-            !Request::routeIs('login'))
+    {{-- @if (!Request::routeIs('404') && !Request::routeIs('maintenance') && !Request::routeIs('signin') && !Request::routeIs('signup') && !Request::routeIs('lockscreen') && !Request::routeIs('password-reset') && !Request::routeIs('2Step') && !Request::routeIs('login'))
         @if ($scrollspy == 1)
             @vite(['resources/rtl/scss/light/assets/scrollspyNav.scss', 'resources/rtl/scss/dark/assets/scrollspyNav.scss'])
         @endif
@@ -130,7 +123,9 @@
     <!--  END LOADER -->
 
     <!--  BEGIN NAVBAR  -->
-    <x-rtl.navbar.style-vertical-menu classes="" />
+    @auth
+        <x-rtl.navbar.style-vertical-menu />
+    @endauth
     <!--  END NAVBAR  -->
 
     <!--  BEGIN MAIN CONTAINER  -->
@@ -141,22 +136,34 @@
         <!--  END LOADER  -->
 
         <!--  BEGIN SIDEBAR  -->
-        <x-rtl.main-sidebar />
+        @auth
+            <x-rtl.main-sidebar />
+        @endauth
         <!--  END SIDEBAR  -->
 
         <!--  BEGIN CONTENT AREA  -->
-        <div id="content" class="main-content">
-            <div class="contaienr">
+        @auth
+            <div id="content" class="main-content">
                 <div class="contaienr">
-                    {{ $slot }}
+                    <div class="contaienr">
+                        {{ $slot }}
+                    </div>
                 </div>
             </div>
+        @else
+            <div id="content" class="main-content" style="margin-right: 0">
+                <div class="contaienr">
+                    <div class="contaienr">
+                        {{ $slot }}
+                    </div>
+                </div>
+            </div>
+        @endauth
 
-            <!--  BEGIN FOOTER  -->
-            <x-rtl.layout-footer />
-            <!--  END FOOTER  -->
+        <!--  BEGIN FOOTER  -->
+        <x-rtl.layout-footer />
+        <!--  END FOOTER  -->
 
-        </div>
         <!--  END CONTENT AREA  -->
 
     </div>
@@ -174,8 +181,10 @@
         @vite(['resources/rtl/assets/js/scrollspyNav.js'])
     @endif --}}
 
+    @vite(['public/plugins-rtl/global/vendors.min.js'])
     @vite(['resources/rtl/layouts/vertical-light-menu/app.js'])
     @vite(['public/plugins-rtl/bootstrap/bootstrap.bundle.min.js'])
+    @vite(['resources/rtl/assets/js/custom.js'])
     @vite(['public/plugins-rtl/perfect-scrollbar/perfect-scrollbar.min.js'])
     @vite(['public/plugins-rtl/mousetrap/mousetrap.min.js'])
     @vite(['public/plugins-rtl/waves/waves.min.js'])

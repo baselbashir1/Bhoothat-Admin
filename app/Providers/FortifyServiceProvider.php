@@ -38,7 +38,8 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::loginView(function () {
             // return view('auth.login');
-            return redirect(getRouterValue() . '/sign-in');
+            // return redirect(getRouterValue() . '/sign-in');
+            return redirect('/sign-in');
         });
 
         RateLimiter::for('login', function (Request $request) {

@@ -21,7 +21,7 @@ class AdminController extends Controller
         $admin = Admin::create($formFields);
         auth()->login($admin);
 
-        return redirect('/ar/dashboard');
+        return redirect('/dashboard');
     }
 
     public function viewSignIn()
@@ -39,7 +39,7 @@ class AdminController extends Controller
         if (auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
-            return redirect('/ar/dashboard');
+            return redirect('/dashboard');
         }
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');

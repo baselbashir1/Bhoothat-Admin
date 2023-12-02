@@ -7,10 +7,13 @@ use Illuminate\Support\Facades\Artisan;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function dashboard()
     {
-        if (app()->getLocale() == 'en') return view('pages.index', ['title' => __('trans.bhoothat')]);
-        if (app()->getLocale() == 'ar') return view('pages-rtl.index', ['title' => __('trans.bhoothat')]);
+        return view('pages-rtl.dashboard', ['title' => __('trans.bhoothat')]);
+    }
+
+    public function showRequests(){
+        return view('pages-rtl.requests', ['title' => __('trans.bhoothat')]);
     }
 
     public function clear()
@@ -23,7 +26,7 @@ class HomeController extends Controller
 
     public function requestResearch()
     {
-        if (app()->getLocale() == 'en') return view('pages.request-research', ['title' => __('trans.bhoothat')]);
-        // if (app()->getLocale() == 'ar') return view('pages-rtl.index', ['title' => __('trans.bhoothat')]);
+        return view('pages-rtl.request-research', ['title' => __('trans.bhoothat')]);
+
     }
 }

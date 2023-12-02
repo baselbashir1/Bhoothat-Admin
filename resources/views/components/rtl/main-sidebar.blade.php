@@ -1,4 +1,4 @@
-<div class="sidebar-wrapper sidebar-theme" style="margin-top: 50px">
+<div class="sidebar-wrapper sidebar-theme" style="margin-top: 65px; z-index: 1">
     <nav id="sidebar">
         {{-- <div class="navbar-nav theme-brand flex-row  text-center">
             <div class="nav-logo">
@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div> --}}
-        <div class="shadow-bottom"></div>
+        {{-- <div class="shadow-bottom"></div> --}}
         <ul class="list-unstyled menu-categories" id="accordionExample">
 
             <li class="menu menu-heading">
