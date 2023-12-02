@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Route;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
 use function Ramsey\Uuid\v1;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+
+use App\Http\Controllers\RequestResearchController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ Route::group(
             Route::middleware(['auth'])->group(function () {
                 Route::get('/', function(){return redirect('/dashboard');});
                 Route::get('/dashboard', [HomeController::class, 'dashboard']);
-                Route::get('/requests', [HomeController::class, 'showRequests']);
+                Route::get('/requests', [RequestResearchController::class, 'getAllRequests']);
                 Route::get('/profile', [AdminController::class, 'profile']);
             });
 

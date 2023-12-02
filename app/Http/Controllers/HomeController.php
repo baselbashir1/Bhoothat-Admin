@@ -12,10 +12,6 @@ class HomeController extends Controller
         return view('pages-rtl.dashboard', ['title' => __('trans.bhoothat')]);
     }
 
-    public function showRequests(){
-        return view('pages-rtl.requests', ['title' => __('trans.bhoothat')]);
-    }
-
     public function clear()
     {
         Artisan::call('config:cache');

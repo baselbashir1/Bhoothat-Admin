@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class RequestResearchController extends Controller
 {
+
+    public function getAllRequests()
+    {
+        $researchRequests = ResearchRequest::all();
+        return view('pages-rtl.requests', ['title' => __('trans.bhoothat')], ['researchRequests' => $researchRequests]);
+
+    }
+
+
     public function requestResearch()
     {
         $educationLevels = EducationLevel::all();

@@ -58,7 +58,7 @@
     @vite(['resources/rtl/scss/layouts/vertical-light-menu/dark/structure.scss'])
     @vite(['resources/rtl/layouts/vertical-light-menu/loader.js'])
 
-    @vite(['resources/scss/light/plugins/plugins.min.scss'])
+    {{-- @vite(['resources/scss/light/plugins/plugins.min.scss']) --}}
 
     <style>
         /* .scrollbar {
